@@ -26,8 +26,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.functions.Action;
 
 /**
  * TODO JavaDoc
@@ -91,6 +92,8 @@ public class ECAnimationUtils {
                             action.run();
                         } catch (Exception e) {
                             e.printStackTrace();
+                        } catch (Throwable throwable) {
+                            throwable.printStackTrace();
                         }
                     }
                 }

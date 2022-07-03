@@ -33,7 +33,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.functions.Function;
+
+import io.reactivex.rxjava3.functions.Function;
 
 @Entity(tableName = "tracks")
 public class TrackTable {
