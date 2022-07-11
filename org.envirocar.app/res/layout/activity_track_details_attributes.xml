@@ -135,6 +135,8 @@
             android:text="09.07.2015 18:06:26"
             android:textColor="#939393" />
 
+
+
     </RelativeLayout>
 
     <RelativeLayout

@@ -63,7 +63,7 @@ public class DataGenerator {
 
 
                 Vehicles vehicles = new Vehicles();
-                Log.i("dataVehicle", " " + tokens[8]);
+                //Log.i("dataVehicle", " " + tokens[8]);
                 vehicles.setManufacturer_id(tokens[0]);
                 vehicles.setId(tokens[1]);
                 vehicles.setManufacturer(tokens[2]);
