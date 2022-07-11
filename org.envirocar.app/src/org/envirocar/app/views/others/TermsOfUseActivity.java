@@ -22,6 +22,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.text.Html;
 import android.text.Spanned;
@@ -30,6 +31,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 import org.envirocar.app.R;
+import org.envirocar.app.databinding.ActivityTouLayoutBinding;
 import org.envirocar.app.handler.agreement.AgreementManager;
 import org.envirocar.app.injection.BaseInjectorActivity;
 import org.envirocar.core.utils.rx.Optional;
@@ -41,8 +43,8 @@ import org.envirocar.app.BaseApplicationComponent;
 import org.envirocar.core.utils.rx.Optional;
 import org.envirocar.app.handler.preferences.UserPreferenceHandler;
 
-import butterknife.ButterKnife;
-import butterknife.BindView;
+
+
 
 import java.util.function.Consumer;
 import javax.inject.Inject;
@@ -56,10 +58,10 @@ public class TermsOfUseActivity extends BaseInjectorActivity {
 
     private static final Logger LOG = Logger.getLogger(TermsOfUseActivity.class);
 
-    @BindView(R.id.tou_text_view)
+
     protected TextView touTextView;
 
-    @BindView(R.id.activity_tou_layout_toolbar)
+
     protected Toolbar toolbar;
 
     @Inject
@@ -77,14 +79,19 @@ public class TermsOfUseActivity extends BaseInjectorActivity {
     }
 
 
+    private ActivityTouLayoutBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityTouLayoutBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        setContentView(R.layout.activity_tou_layout);
+        touTextView = binding.touTextView;
+        toolbar = binding.activityTouLayoutToolbar;
 
         // Inject views
-        ButterKnife.bind(this);
+
 
         // Set Actionbar
         setSupportActionBar(toolbar);
