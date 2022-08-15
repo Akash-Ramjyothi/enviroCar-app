@@ -2,14 +2,20 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
+        google()
         maven { url "https://jitpack.io" }
         maven { url "https://plugins.gradle.org/m2/" }
-        google()
+        maven { url "https://www.jetbrains.com/intellij-repository/releases" }
+        maven { url "https://jetbrains.bintray.com/intellij-third-party-dependencies" }
 
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+        classpath 'com.squareup.sqldelight:gradle-plugin:1.5.0'
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.38.1"
     }
 
 }
@@ -18,6 +24,8 @@ plugins {
     id 'maven-publish'
     id "com.github.hierynomus.license" version "0.16.1"
 }
+
+apply plugin: "kotlin"
 
 allprojects {
     apply plugin: "com.github.hierynomus.license"
@@ -88,7 +96,7 @@ ext {
     def sqlite_version = "2.1.0"
     supportSqlite = "androidx.sqlite:sqlite:$sqlite_version"
     supportSqliteFramework = "androidx.sqlite:sqlite-framework:$sqlite_version"
-    sqlBrite = 'com.squareup.sqlbrite3:sqlbrite:3.2.0'
+    sqlDelight = 'com.squareup.sqldelight:gradle-plugin:1.5.0'
 
     // Dependency injection, view injection, event bus...
     dagger = 'com.google.dagger:dagger:2.35.1'
